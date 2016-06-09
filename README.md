@@ -79,7 +79,7 @@ vlc http://localhost:9999 &
 ```
 cd bin
 wget https://upload.wikimedia.org/wikipedia/commons/7/79/Big_Buck_Bunny_small.ogv
-cvlc Big_Buck_Bunny_small.ogv --sout "#http{mux=ogg,dst=:8080/bbb}" :sout-keep &
+cvlc Big_Buck_Bunny_small.ogv --sout "#http{mux=ogg,dst=:8080/BBB-143.ogv}" :sout-keep &
 ./splitter --NTS --source_addr 127.0.0.1 --source_port 8080 --team_port 4552 --channel BBB-143.ogv > /dev/null &
 ./peer --monitor --splitter_addr 127.0.0.1 --splitter_port 4552 > /dev/null &
 vlc http://localhost:9999 &
