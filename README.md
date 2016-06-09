@@ -1,7 +1,7 @@
 # I-want-to-use-it
 ==================
 
-Minimal, basic and always (we try) updated information about how to use P2PSP
+Minimal, basic and always updated information about how to use P2PSP.
 
 # Install [Boost C++ Libraries](http://www.boost.org)
 
