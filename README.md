@@ -46,15 +46,16 @@ sudo pacman -S cmake
 # Install [P2PSP core](https://github.com/P2PSP/core.git) and [P2PSP console](https://github.com/P2PSP/p2psp-console.git)
 
 ```
-git clone --recursive https://github.com/P2PSP/p2psp-console.git
+git clone https://github.com/P2PSP/core.git
+git clone https://github.com/P2PSP/p2psp-console.git
 ```
 
 # Compile
 
 ```
-cd p2psp-console/lib/p2psp
+cd core
 ./make.py
-cd ../..
+cd ../p2psp-console
 ./make.py
 ```
 
@@ -70,19 +71,24 @@ vlc http://localhost:9999 &
 
 ```
 cd bin
-./splitter --NTS --source_addr 150.214.150.68 --source_port 4551 --team_port 4552 --channel BBB-134.ogv > /dev/null &
-./peer --monitor --splitter_addr 127.0.0.1 --splitter_port 4552 > /dev/null &
+./splitter --source_addr 150.214.150.68 --source_port 4551 --splitter_port 8001 --channel BBB-134.ogv --header_size 30000 > /dev/null &
+./monitor --splitter_addr 127.0.0.1 --splitter_port 8002 > /dev/null &
 vlc http://localhost:9999 &
+./peer --splitter_addr 127.0.0.1 --splitter_port 8001 --player_port 10000 &
+vlc http://localhost:10000 &
 ```
+
 # Run a source and a local team
 
 ```
 cd bin
 wget https://upload.wikimedia.org/wikipedia/commons/7/79/Big_Buck_Bunny_small.ogv
 cvlc Big_Buck_Bunny_small.ogv --sout "#http{mux=ogg,dst=:8080/BBB-143.ogv}" :sout-keep &
-./splitter --NTS --source_addr 127.0.0.1 --source_port 8080 --team_port 4552 --channel BBB-143.ogv > /dev/null &
-./peer --monitor --splitter_addr 127.0.0.1 --splitter_port 4552 > /dev/null &
+./splitter --source_addr 127.0.0.1 --source_port 8080 --splitter_port 8001 --channel BBB-143.ogv --header_size 30000 > /dev/null &
+./monitor --splitter_addr 127.0.0.1 --splitter_port 8001 > /dev/null &
 vlc http://localhost:9999 &
+./peer --splitter_addr 127.0.0.1 --splitter_port 8001 --player_port 10000 &
+vlc http://localhost:10000 &
 ```
 
 
