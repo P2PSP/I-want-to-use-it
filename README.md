@@ -28,7 +28,7 @@ sudo pacman -S boost
 ### Debians
 
 ```
-todo
+sudo apt-get install cmake
 ```
 
 ### Mac
