@@ -22,7 +22,7 @@ brew install boost
 ```
 sudo pacman -S boost
 ```
-# Install "libSSL"()
+# Install [OpenSSL](https://www.openssl.org/)
 
 ## Debians
 
