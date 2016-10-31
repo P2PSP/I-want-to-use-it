@@ -22,6 +22,17 @@ brew install boost
 ```
 sudo pacman -S boost
 ```
+# Install "libSSL"()
+
+## Debians
+
+```
+sudo apt-get install libssl-dev
+```
+
+## Mac
+
+## Arch
 
 # Install [cmake](https://cmake.org)
 
