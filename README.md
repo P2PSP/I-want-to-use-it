@@ -93,7 +93,8 @@ vlc http://localhost:10000 &
 
 ```
 cd bin
-wget https://upload.wikimedia.org/wikipedia/commons/7/79/Big_Buck_Bunny_small.ogv
+youtube-dl https://www.youtube.com/watch?v=YE7VzlLtp-4 # but, this fails:
+# wget https://upload.wikimedia.org/wikipedia/commons/7/79/Big_Buck_Bunny_small.ogv
 cvlc Big_Buck_Bunny_small.ogv --sout "#http{mux=ogg,dst=:8080/BBB-143.ogv}" :sout-keep &
 ./splitter --source_addr 127.0.0.1 --source_port 8080 --splitter_port 8001 --channel BBB-143.ogv --header_size 30000 > /dev/null &
 ./monitor --splitter_addr 127.0.0.1 --splitter_port 8001 > /dev/null &
