@@ -154,7 +154,7 @@ killall vlc
 # Run a second Icecast2 server listening at port 9000
 /usr/bin/icecast2 -b -c ~/icecast-2.4.3/icecast.xml
 
-# Feed all icecast servers (2 movies for 8000 and 1 foe 9000)
+# Feed all icecast servers (2 movies for 8000 and 1 for 9000)
 cvlc ~/Videos/Big_Buck_Bunny_small.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:8000/BBBs.ogv}" --loop &
 cvlc ~/Videos/chi84_14_m4.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:8000/LLL.ogv}" --loop &
 cvlc ~/Videos/hcil2003_01.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:9000/hcil.ogv}" --loop &
