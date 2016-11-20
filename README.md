@@ -130,6 +130,10 @@ sleep 1
 cvlc ~/Videos/chi84_14_m4.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:8000/LLL.ogv}" --loop &
 sleep 1
 
+echo "Run a relay Icecast server listening at port 9000"
+/usr/bin/icecast2 -b -c ~/icecast/icecast.xml
+sleep 1
+
 echo "Feed the second (9000) icecast server"
 cvlc ~/Videos/hcil2003_01.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:9000/hcil.ogv}" --loop &
 sleep 1
