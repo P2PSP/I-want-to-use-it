@@ -34,6 +34,10 @@ sudo apt-get install libssl-dev
 
 ## Arch
 
+```
+sudo pacman -S openssl
+```
+
 # Install [cmake](https://cmake.org)
 
 ### Debians
