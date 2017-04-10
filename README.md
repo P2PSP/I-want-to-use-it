@@ -6,7 +6,7 @@ Minimal, basic and always updated information about how to use P2PSP.
 
 # Install [Boost C++ Libraries](http://www.boost.org)
 
-## Debians
+### Debians
 
 ```
 sudo apt-get install libboost-all-dev
@@ -25,19 +25,19 @@ sudo pacman -S boost
 ```
 # Install [OpenSSL](https://www.openssl.org/)
 
-## Debians
+### Debians
 
 ```
 sudo apt-get install libssl-dev
 ```
 
-## Mac
+### Mac
 
 ```
 brew install openssl
 ```
 
-## Arch
+### Arch
 
 ```
 sudo pacman -S openssl
