@@ -33,6 +33,10 @@ sudo apt-get install libssl-dev
 
 ## Mac
 
+```
+brew install openssl
+```
+
 ## Arch
 
 ```
