@@ -111,6 +111,20 @@ vlc http://localhost:9999 &
 vlc http://localhost:10000 &
 ```
 
+# Run a smart source client based local team 
+
+```
+cd bin
+wget https://upload.wikimedia.org/wikipedia/commons/7/79/Big_Buck_Bunny_small.ogv
+./splitter --source_addr 127.0.0.1 --source_port 32000 --splitter_port 8001 --channel BBB.ogv --header_size 30000 --smart_source_client 1 > /dev/null &
+./monitor --splitter_addr 127.0.0.1 --splitter_port 8001 --smart_source_client 1 > /dev/null &
+vlc http://localhost:9999 &
+cvlc Big_Buck_Bunny_small.ogv --sout "#http{mux=ogg,dst=:8080/BBB.ogv}" :sout-keep &
+node ./../src/vlc-sourceClient.js 32000 BBB.ogv 8080 &
+./peer --splitter_addr 127.0.0.1 --splitter_port 8001 --player_port 10000 --smart_source_client 1 &
+vlc http://localhost:10000 &
+```
+
 # Run a simple Icecast structure
 ```
 echo "Killing all VLC instances (sources and listeners)"
